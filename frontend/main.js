@@ -2,18 +2,20 @@ window.addEventListener('DOMContentLoaded', (event) =>{
     getVisitCount();
 })
 
-const functionApi = '';
+const apiGateway = 'https://crc-functionapp.azurewebsites.net/api/HttpTrigger1?code=VJu7cxKVJWsXIbqy-PTy4UEEzL8onzXvK2IOyMpX_s33AzFuxFpHGA==';
 
 const getVisitCount = () => {
-    let count = 30;
-    fetch(functionApi).then(Response => {
+    let count = 0;
+    fetch(apiGateway, {
+        node: 'cors',
+    })
+    .then(Response =>{
         return Response.json()
-    }).then(Response =>{
-        console.log("Website called function API.")
-        count = Response.count
+    })
+    .then(res => {
+        const count = res;
         document.getElementById("counter").innerText = count;
-    }).catch(function(error){
-        console.log(error);
-    });
+        document.getElementById("visitorElem").style.display = 'block';
+    })    
     return count;
 }

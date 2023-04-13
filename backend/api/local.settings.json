@@ -1,0 +1,6 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "cosmodbcrc_DOCUMENTDB": "AccountEndpoint=https://cosmodb-crc.documents.azure.com:443/;AccountKey=caf6WW2elmwOOUvueTUklISOn39Q2BnWTb8zCeaDI2dQEmyaSAvdB2b2UkehVOeXglm2B6Bfjlq1ACDbsC8mTA==;"
+  }
+}
