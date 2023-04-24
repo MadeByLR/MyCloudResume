@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) =>{
+window.addEventListener('DOMContentLoaded', (event) => {
     getVisitCount();
 });
 
@@ -9,11 +9,11 @@ const getVisitCount = () => {
     fetch(apiGateway, {
         mode: 'cors',
     })
-    .then(Response =>{
-        return Response.json()
+    .then(response => {
+        return response.json()
     })
     .then(res => {
-        const count = res;
+        const count = res.Attributes.visitcount;
         document.getElementById("counter").innerText = count;
         document.getElementById("visitorElem").style.display = 'block';
     })    
