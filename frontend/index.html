@@ -56,7 +56,20 @@
          <div class="banner-text">
             <h1 class="responsive-headline">Hi, I'm Leon</h1>
             
-            <h1 id="visitorElem" style="display: none;"><span id="counter">0</span> people checked this resume</h1> 
+            <h1 id="visitorElem"><span id="counter">0</span> people checked this resume</h1> 
+            <script>
+               async function getVisitorCount() {
+                  try {
+                     const response = await fetch('http://localhost:7071/api/http_trigger'); // Replace with your Azure Function endpoint
+                     const data = await response.json();
+                     document.getElementById('counter').textContent = data.count;
+                     document.getElementById('visitorElem').style.display = 'block'; // Show the counter once fetched
+                  } catch (error) {
+                     console.error('Error fetching visitor count:', error);
+                  }
+               }
+               window.onload = getVisitorCount;
+            </script>
             <ul class="social">
                <li><a href="https://twitter.com/lrs140"><i class="fa fa-twitter"></i></a></li>
                <li><a href="https://linkedin.com/in/lrs140"><i class="fa fa-linkedin"></i></a></li>
