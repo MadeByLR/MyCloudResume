@@ -1,21 +1,19 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', (event) =>{
     getVisitCount();
-});
+})
 
-const apiGateway = 'https://crc-functionapp.azurewebsites.net/api/HttpTrigger1?code=VJu7cxKVJWsXIbqy-PTy4UEEzL8onzXvK2IOyMpX_s33AzFuxFpHGA==';
+const functionApi = 'http://localhost:7071/api/GetResumeCounter';
 
 const getVisitCount = () => {
     let count = 0;
-    fetch(apiGateway, {
-        mode: 'cors',
-    })
-    .then(response => {
+    fetch(functionApi).then(response => {
         return response.json()
-    })
-    .then(res => {
-        const count = res.Attributes.visitcount;
+    }).then(response =>{
+        console.log("Website called fucntion API.");
+        count = response.count;
         document.getElementById("counter").innerText = count;
-        document.getElementById("visitorElem").style.display = 'block';
-    })    
+    }).catch(function(error){
+        console.log(error);
+    });  
     return count;
 }
