@@ -12,5 +12,5 @@ This resource group contains:
 The back end files are stored in the resource group Backend-API-RG in Azure.
 
 This resource group contains:
-- Azure Function (Python) - Serverless
+- Azure Function (C#) - Serverless
 - Cosmos DB for Visitor Count
